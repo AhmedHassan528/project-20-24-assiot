@@ -1,0 +1,57 @@
+﻿@model ANGEL_Store.Models.Location
+
+@{
+    ViewData["Title"] = "Create new Address";
+}
+
+
+<div class="form-body primary-text">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3 style="color: #2A2F4F">Create new Address</h3>
+                    <form asp-action="Create">
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="Street" placeholder="Street" required>
+                            <span asp-validation-for="Street" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="City" placeholder="City" required>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="State" placeholder="State" required>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control"  asp-for="phoneNumber" placeholder="Please enter correct phoneNumber" required>
+                            <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input class="form-control"  asp-for="SecPhoneNumber" placeholder="Second phoneNumber (optional)">
+                            <span asp-validation-for="SecPhoneNumber" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-md-12">
+                            <input class="form-control" asp-for="Address1" placeholder="First Address">
+                            <span asp-validation-for="Address1" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" asp-for="Address2" placeholder="Second Address (optional)">
+                            <span asp-validation-for="Address2" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Create new Address</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

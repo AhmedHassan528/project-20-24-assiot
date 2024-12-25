@@ -1,0 +1,538 @@
+
+
+.btn {
+     text-decoration: none !important;
+     outline: none !important;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     transition: all .3s ease-in-out;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+}
+
+ :focus {
+     outline: 0;
+}
+
+.btn-custom {
+     margin-top: 20px;
+     background-color: transparent !important;
+     border: 2px solid #ddd;
+     padding: 12px 40px;
+     font-size: 16px;
+}
+
+.lead {
+     font-size: 18px;
+     line-height: 30px;
+     color: #767676;
+     margin: 0;
+     padding: 0;
+}
+
+.badge {
+     font-weight: 500;
+}
+
+blockquote {
+     margin: 20px 0 20px;
+     padding: 30px;
+}
+
+button {
+     border: 0;
+     margin: 0;
+     padding: 0;
+     cursor: pointer;
+}
+
+.full {
+     float: left;
+     width: 100%;
+}
+
+.full {
+     width: 100%;
+     float: left;
+     margin: 0;
+     padding: 0;
+}
+
+
+/**-- heading section --**/
+
+
+/*---------------------------- preloader area ----------------------------*/
+
+.loader_bg {
+     position: fixed;
+     z-index: 9999999;
+     background: #fff;
+     width: 100%;
+     height: 100%;
+}
+
+.loader {
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.loader img {
+     width: 280px;
+}
+
+
+/*-- header area --*/
+
+
+/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+
+.header {
+     width: 100%;
+     position: relative;
+     padding-left: 0;
+}
+
+.header_full_bg {
+     background: #917FB3;
+}
+
+.header_top {
+     padding: 35px 0px;
+     position: absolute;
+     width: 100%;
+}
+
+.logo a img {
+     z-index: 9999;
+     position: relative;
+}
+
+
+/*-- navigation--*/
+
+ul.menu {
+     position: relative;
+     z-index: 9;
+}
+
+.menu_sitbar {
+     width: 72px;
+     background: #fff;
+     float: left;
+     height: 100%;
+     padding: 17px;
+     position: absolute;
+     left: 0;
+     top: 0;
+}
+
+ul.menu li img {
+     width: 37px;
+     height: 20px;
+}
+
+.menu_sid {
+     height: 100%;
+     width: 0;
+     position: fixed;
+     z-index: 99;
+     top: 0;
+     left: 0;
+     background-color: rgb(0, 0, 0);
+     background-color: rgba(0, 0, 0, 0.9);
+     overflow-x: hidden;
+     transition: 0.5s;
+     z-index: 99999999999999;
+}
+
+.menu_sid-content {
+     position: relative;
+     top: 25%;
+     width: 100%;
+     text-align: center;
+     margin-top: 30px;
+}
+
+.menu_sid a {
+     text-decoration: none;
+     padding: 2px;
+     font-size: 26px;
+     color: #818181;
+     display: block;
+     transition: 0.3s;
+}
+
+.menu_sid a:hover,
+.menu_sid a:focus {
+     color: #f1f1f1;
+}
+
+.menu_sid .closebtn {
+     position: absolute;
+     top: 20px;
+     right: 45px;
+     font-size: 60px;
+}
+
+ul.social_icon {
+     padding-top: 3px;
+     float: right;
+     position: absolute;
+     bottom: 0;
+}
+
+ul.social_icon li {
+     display: block;
+     margin: 4px 0;
+}
+
+ul.social_icon li a {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 17px;
+     border-radius: 30px;
+     margin: 0 3px;
+     color: #fff;
+     background-color: #000000;
+     width: 32px;
+     height: 32px;
+}
+
+ul.social_icon li a:hover {
+     color: #fff;
+     background-color: #456ef7;
+}
+
+
+/** banner section **/
+
+.banner_text {
+     max-width: 509px;
+     float: right;
+     width: 100%;
+     text-align: left;
+     margin-top: 33%;
+     margin-bottom: 70px;
+     padding-left: 72px;
+}
+
+.banner_text h1 {
+     font-size: 65px;
+     line-height: 78px;
+     font-weight: 600;
+     padding-bottom: 22%;
+}
+
+.get_btn {
+     background-color: #151616;
+     color: #fff;
+     text-align: center;
+     max-width: 195px;
+     width: 100%;
+     height: 46px;
+     font-size: 16px;
+     padding: 8px 0;
+     display: inline-block;
+     margin-right: 10px;
+}
+
+.get_btn:hover {
+     background: #456ef7;
+     color: #fff;
+}
+
+.bann_img {
+     height: 657px;
+}
+
+
+/** end banner section **/
+
+.titlepage {
+     text-align: center;
+     padding-bottom: 50px;
+}
+
+.titlepage h2 {
+     font-size: 40px;
+     color: #2e2d2d;
+     line-height: 35px;
+     font-weight: 600;
+     padding: 0;
+     margin: 0;
+}
+
+.d_flex {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+.read_more {
+     font-size: 17px;
+     background-color: #3e3f40;
+     color: #fff;
+     padding: 9px 0px;
+     width: 100%;
+     max-width: 194px;
+     text-align: center;
+     display: inline-block;
+     transition: ease-in all 0.5s;
+     font-weight: 500;
+     height: 46px;
+}
+
+.read_more:hover {
+     background: #456ef7;
+     color: #fff;
+     transition: ease-in all 0.5s;
+}
+
+
+/** our protien section **/
+
+.protien_main {
+     padding-top: 80px;
+     padding-bottom: 50px;
+     background-color: #f8f8f8;
+     position: relative;
+}
+
+.protien_main .titlepage h2 {
+     padding-left: 40px;
+     text-align: left;
+}
+
+.protien {
+     text-align: center;
+     margin-bottom: 30px;
+}
+
+.protien figure {
+     margin: 0;
+}
+
+.protien figure img {
+     width: 100%;
+}
+
+.protien h3 {
+     font-size: 30px;
+     font-weight: 500;
+     line-height: 25px;
+     padding-bottom: 15px;
+     color: #262626;
+     padding-top: 8px;
+}
+
+.protien span {
+     font-size: 20px;
+     line-height: 24px;
+     font-weight: 500;
+     color: #262626;
+}
+
+.mar_top {
+     margin: 0 auto;
+     display: block;
+     max-width: 142px;
+     height: 40px;
+     padding: 4px 0;
+     margin-top: 15px;
+}
+
+
+
+
+/** end team section **/
+
+.about {
+     background-color: #fff;
+     padding-top: 80px;
+     position: relative;
+}
+
+.about .titlepage {
+     text-align: left;
+     padding-bottom: 0;
+     max-width: 551px;
+     float: right;
+     width: 100%;
+}
+
+.about .titlepage h2 {
+     margin-bottom: 35px;
+}
+
+.about .titlepage p {
+     font-weight: 400;
+     font-size: 17px;
+     line-height: 28px;
+     padding-bottom: 55px;
+}
+
+.pad_right0 {
+     padding-right: 0px;
+}
+
+.about_img figure {
+     margin: 0;
+}
+
+.about_img figure img {
+     width: 100%;
+}
+
+
+/** growyhing section **/
+
+.growyhing {
+     border-top: #eaeaea solid 1px;
+     border-bottom: #eaeaea solid 1px;
+     margin-top: 80px;
+     padding-top: 40px;
+}
+
+.growyhing .titlepage {
+     text-align: left;
+}
+
+.growyhing .titlepage h2 {
+     font-size: 72px;
+     line-height: 90px;
+     margin-bottom: 60px;
+}
+
+.body_img::before {
+     position: absolute;
+     content: "";
+     width: 60px;
+     background: url(../images/border.png);
+     background-position: center;
+     background-repeat: no-repeat;
+     top: 0;
+     bottom: 0;
+     left: -40px;
+}
+
+.body_img figure {
+     margin: 0;
+}
+
+.body_img figure img {
+     width: 100%;
+}
+
+
+/** end growyhing section **/
+
+
+/** testimonial section **/
+
+.testimonial {
+     padding-top: 80px;
+}
+
+.body_blu_img {
+     max-width: 436px;
+     float: right;
+     text-align: left;
+     width: 100%;
+}
+
+.body_blu_img figure {
+     margin: 0;
+}
+
+.testimo_ban_bg {
+     background: #917fb3;
+}
+
+.testimo_ban::before {
+     position: absolute;
+     content: "";
+     background: #fff;
+     width: 50px;
+     height: 100%;
+     top: 0;
+     z-index: 9;
+}
+
+.testimo_ban {
+     padding: 73px 0;
+     height: 100%;
+}
+
+.relative2 {
+     position: inherit;
+     text-align: left;
+     padding: 0px 70px;
+}
+
+.relative2 span {
+     color: #fff;
+     font-size: 24px;
+     font-weight: 500;
+     padding-left: 20px;
+}
+
+.relative2 p {
+     color: #fff;
+     padding-top: 40px;
+}
+
+#testimo .carousel-control-prev,
+#testimo .carousel-control-next {
+     width: 55px;
+     height: 55px;
+     background: #2e2d2d;
+     opacity: 1;
+     font-size: 20px;
+     color: #ffffff;
+     top: 39%;
+}
+
+#testimo .carousel-control-prev:hover,
+#testimo .carousel-control-next:hover,
+#testimo .carousel-control-prev:focus,
+#testimo .carousel-control-next:focus {
+     background: #ececec;
+     color: #2e2d2d;
+}
+
+#testimo .carousel-control-prev {
+     left: 20px;
+     z-index: 9;
+}
+
+#testimo .carousel-control-next {
+     right: 30px;
+}
+
+.banner .carousel-indicators li {
+     width: 20px;
+     height: 20px;
+     border-radius: 30px;
+     background: #000;
+}
+
+.carousel-indicators {
+     display: none;
+}
+
+
+g[[g]]
+

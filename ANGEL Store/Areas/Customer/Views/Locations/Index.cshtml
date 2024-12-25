@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ANGEL_Store.Models.Location>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="TitleOfCard">
+
+        <div class="cardTilte" style="display: block">
+            <h1>Addresses</h1>
+            <a asp-action="Create" class="btn btn-primary">Add New Address</a>
+        </div>
+    </div>
+
+    @foreach(var item in Model)
+    {
+        <main class="cardBody container">
+            <div class="AddressFrame">
+                <div class="row" style="padding: 10px;">
+                    <div class="col-sm-12 col-md-5">
+                        <div style="padding-left: 10px;" class="cardDet">
+                            <h5>Address 1: @item.Address1</h5>
+                        <h5>Address 2: @if(item.Address2 == null)
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.AddressId">Add Another Address </a>
+                            }else
+                            {
+                                @item.Address2
+                            }
+                        </h5>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-sm-12 col-md-4">
+
+                        <h6>Street: @item.Street</h6>
+                        <h6>City: @item.City</h6>
+                        <h6>State: @item.State</h6>
+                        <h6>phoneNumber: @item.phoneNumber</h6>
+                    <h6>
+                        phoneNumber: @if (item.SecPhoneNumber == null)
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.AddressId">Add Another PhoneNumber 2</a>
+                        }
+                        else
+                        {
+                            @item.SecPhoneNumber
+                        }
+                    </h6>
+                    </div>
+                    <br>
+                    <div class="col-sm-12 col-md-2 part-3">
+                        <div style="height: 100%; display: flex; gap: 20px; align-items: center;" class="text-end">
+                            <div>
+                                <a asp-action ="Edit" asp-route-id="@item.AddressId" class="btn btn-secondary">Edit</a>
+                            </div>
+                            <div class="text-center">
+                                <a asp-action="Delete" asp-route-id="@item.AddressId" style="color: red;"><i class="fa-solid fa-trash" style="color: #ff0000; margin-right: 5px;"></i>Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    }

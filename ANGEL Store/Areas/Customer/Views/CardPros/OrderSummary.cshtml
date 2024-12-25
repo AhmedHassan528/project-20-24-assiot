@@ -1,0 +1,170 @@
+﻿@using ANGEL_Store.Models;
+@model IEnumerable<ANGEL_Store.Models.CardPro>
+@{
+    var Discount = 0;
+    ViewData["Title"] = "Index";
+    var locations = ViewBag.Locations as List<Location>;
+}
+
+<style>
+
+</style>
+
+<div class="TitleOfCard container" style="display: block;">
+    <div class="cardTilte">
+        <h1>Order Summary</h1>
+    </div>
+</div>
+<br>
+
+<main class="cardBody container ">
+    <form asp-action="OrderSummary">
+
+    <div class="Payment">
+        <div class="row">
+            <div class="col-md-6" style="padding-left: 0px; padding-right: 0px;">
+                <div class="left-side">
+                    <div class="container">
+                        <div class="logo">
+                            <img src="~/icon/logo2.png">
+                        </div>
+                        <a href="#"> Download the invoice in PDF form </a>
+                        <div class="text-center">
+                        </div>
+                        <div class="Total-cost">
+                            @foreach(var item in Model)
+                            {
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>@item.ItemName</h4>
+                                        <p style="font-weight: 200; font-size: 15px;">Size: @item.SelectedSize || Color: @item.SelectedColor || QTY: @item.QTY</p>
+                                    </div>
+                                    <div class="col">
+                                            <p style="font-size: 25px; font-weight: 600;">EGY @item.ItemPrice.ToString("0.##")</p>
+                                    </div>
+                                </div>
+
+                                Discount++;
+                            }
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Discounts && Offers</h4>
+                                </div>
+                                <div class="col">
+                                    <p style="font-size: 25px; font-weight: 600;">@Discount</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Tax</h4>
+                                </div>
+                                <div class="col">
+                                    <p style="font-size: 25px; font-weight: 600;">Price LE</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h4>promo code</h4>
+                                </div>
+                                <div class="col">
+                                    <input style="font-size: 16px; font-weight: 600;" type="text"
+                                           placeholder="Enter Promo Code">
+                                    <p><button class="btn btn-primary">Apply</button></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 1px; width: 100%; background-color: #fff; margin-top: 20px; margin-bottom: 20px;">
+                        </div>
+                        <div class="Total-cost">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Discount</h4>
+                                </div>
+                                <div class="col">
+                                    <p style="font-size: 25px; font-weight: 600;">Price LE</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h4>Total</h4>
+                                </div>
+                                <div class="col">
+                                        <p style="font-size: 25px; font-weight: 600;">@ViewBag.totalPrice.ToString("0.##") LE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="padding-left: 0px; padding-right: 0px;">
+                <div class="right-side">
+                        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                            <div class="radio-list">
+                                <h4>Which Social Media you Often use?</h4>
+                                    @foreach (var item in Model)
+                                    {
+                                        for (int i = 0; i < item.paymentMethod.Length; i++)
+                                        {
+                                            <div class="radio-item">
+                                            <input required type="radio" id="radio@(i + 1)" name="SelectedPaymentMethod" value="@item.paymentMethod[i]" @(item.SelectedPaymentMethod == item.paymentMethod[i] ? "checked" : "")>
+                                                <label for="radio@(i + 1)">
+                                                    <img style="width: 35px; margin-right: 5px;" src="~/icon/icons8-cash-on-delivery-66.png">
+                                                    @item.paymentMethod[i]
+                                                </label>
+                                            </div>
+                                        }
+                                        break;
+                                    }
+                            </div>
+                            <div style="height: 1px; width: 100%; background-color: #fff; margin-top: 20px; margin-bottom: 30px;">
+                            <h4 style=" font-weight: 600; color: #1b1b1b;" class="text-center">choose Address</h4><br />
+                            </div>
+                            @foreach (var item in Model){
+
+                                if(locations.Count != 0)
+                                {
+                                    foreach (var location in locations)
+                                    {
+                                        <div class="Addresses" style="margin-bottom: 10px">
+                                            <label class="form-control">
+                                                <input required type="radio" id="location@(location.AddressId)" name="SelectedLocationId" value="@location.AddressId" @(item.SelectedLocationId == location.AddressId ? "checked" : "")>
+                                                <label for="location@(location.AddressId)">
+                                                    @location.Address1 / @location.phoneNumber / @location.City
+                                                </label>
+                                            </label>
+
+                                        </div>
+
+                                    }
+                                    break;
+                                }
+                                else
+                                {
+                                    <div style="display: block">
+                                        <h5 class="text-center" style="color: black">No, Address here :(</h5>
+                                        <div class="text-center">
+                                            <button asp-action="Create" asp-controller="Locations" class="btn btn-primary">Create Address</button>
+                                        </div>
+                                    </div>
+                                    break;
+
+                                }
+
+
+                            }
+
+                </div>
+            </div>
+                </form>
+        </div>
+    </div>
+    <br>
+    <div style="width:100%" class="form-group text-center">
+        <input style="width: 50%;font-weight: bolder;font-size: 30px;" type="submit" value="Confirm" class="btn btn-primary" />
+    </div>
+    <br>
+    <br>
+    <br><br>
+    <br>
+</main>

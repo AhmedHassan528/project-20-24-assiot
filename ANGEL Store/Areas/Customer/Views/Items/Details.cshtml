@@ -1,0 +1,98 @@
+﻿@model ANGEL.Models.Item
+
+@{
+    ViewData["Title"] = "ItemSelect";
+}
+<style>
+    option{
+        color: #2A2F4F;
+    }
+    footer{
+        position: fixed;
+    }
+
+</style>
+<main style="width: 85%; color:#2A2F4F;">
+    <form asp-action="Details" class="Add-To-Cart-btn">
+
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-sm-12 col-md-5">
+                    <img style="width: 100%" src="~/itemImages/@Model.ItemImage" alt="">
+                </div>
+                <div class="col-sm-12 col-md-3" style="position: relative;">
+                    <i style="position: absolute; right: 0;" class="fa-regular fa-heart fa-2xl"></i>
+                    <h1 style="width: 100%; color:#2A2F4F">@Model.ItemName</h1><br>
+                    <div style="display: flex; gap: 20px;">
+                        <h3>color</h3>
+                        @Html.DropDownListFor(model => model.SelectedColor, new SelectList(Model.Colorlist), "Select a color", new { style = "width: 100%; height: 100%; border-radius: 12px;", @class = "form-control", required = "required" })
+                    </div>
+                    <br>
+                    <div style="display: flex; gap: 20px;">
+                        <h3>Size</h3>
+                        @Html.DropDownListFor(model => model.SelectedSize, new SelectList(Model.Sizelist), "Select a size", new { style = "width: 100%; height: 100%; border-radius: 12px;", @class = "form-control", required = "required" })
+                    </div>
+                    <br>
+                    <div style="display: flex; gap: 20px;">
+                        <h3>Quantity</h3>
+                        <input asp-for="ItemQuantity" value="1" required style="width: 100px; height: 100%; border-radius: 12px;" />
+                    </div>
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.Message
+                        </div>
+                    }
+                    @if (ViewBag.INstockError != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.INstockError
+                        </div>
+                    }
+                    <br>
+
+                    <img style="width: 180px; display: flex; justify-content: center; align-items: center;" src="~/icon/items-rate.png">
+                    <br>
+                    <div style="background-color: gray; min-height: 2px;"></div>
+                    <h3>Price</h3>
+                    <div style="display: flex; gap: 20px;" class="mt-0">
+                        <h3>@Model.ItemPrice</h3>
+                        <i style="color: #7DDCFA;" class="fa-solid fa-thumbs-up fa-2xl"></i>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-sm-12 col-md-3 Information-list">
+                    <div class="information-box">
+                        <ul>
+                            @for (int i = 0; i < Model.Informationlist.Count; i++)
+                            {
+                                <option value="@Model.Informationlist[i]">@Model.Informationlist[i]</option>
+                            }
+                        </ul>
+                    </div>
+                    <br>
+                        <input type="hidden" asp-for="ItemId" />
+                    @if (ViewBag.NumOfProducts != null)
+                    {
+                        <p class="text-danger">@ViewBag.NumOfProducts</p>
+                    }
+                    <button type="submit" style="width: 150px; height: 40px;" class="btn"> <i class="fa-solid fa-cart-shopping fa-xl"></i> <b>Add To Cart</b></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+<script>
+    // jQuery script to handle form submission
+    $(document).ready(function () {
+        $("#saveButton").click(function () {
+            // Set the selected color and size in the hidden input fields
+            $("#selectedColor").val($("#color").val());
+            $("#selectedSize").val($("#size").val());
+
+            // Submit the form
+            $("#editForm").submit();
+        });
+    });
+</script>

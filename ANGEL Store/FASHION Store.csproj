@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-FASHION_Store-475b9220-77d1-4435-bf56-39b08ae10d2a</UserSecretsId>
+    <RootNamespace>ANGEL_Store</RootNamespace>
+    <PackageProjectUrl></PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <Content Remove="wwwroot\lib\jquery\dist\jquery.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Identity.Core" Version="2.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
+    <PackageReference Include="Xdot.Paymob.CashIn.DependencyInjection" Version="1.0.7" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.6.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\itemImages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\HomePageStyle\images\.DS_Store" />
+    <None Include="wwwroot\HomePageStyle\css\icomoon.css" />
+    <None Include="wwwroot\HomePageStyle\css\responsive.css" />
+    <None Include="wwwroot\HomePageStyle\css\style.css" />
+    <None Include="wwwroot\HomePageStyle\images\3384-12-removebg-preview.png" />
+    <None Include="wwwroot\HomePageStyle\images\about.jpg" />
+    <None Include="wwwroot\HomePageStyle\images\beautiful-muslim-woman-in-fashinable-dress-with-hijab-isolated-on-cyan-background-representing-concept-of-modern-islam-fashion-with-mix-of-traditio-2GXPD38.jpg" />
+    <None Include="wwwroot\HomePageStyle\images\border.png" />
+    <None Include="wwwroot\HomePageStyle\images\costu.png" />
+    <None Include="wwwroot\HomePageStyle\images\islamic-clothing-for-women_1024x1024.jpg" />
+    <None Include="wwwroot\HomePageStyle\images\loading.gif" />
+    <None Include="wwwroot\HomePageStyle\images\logo.png" />
+    <None Include="wwwroot\HomePageStyle\images\logo2.png" />
+    <None Include="wwwroot\HomePageStyle\images\menu_icon.png" />
+    <None Include="wwwroot\HomePageStyle\images\tunic-2680ayd574-burgundy-ar-739938-13-O-ezgif.com-webp-to-jpg-converter-removebg-preview.png" />
+    <None Include="wwwroot\HomePageStyle\images\Untitled design.png" />
+    <None Include="wwwroot\HomePageStyle\js\custom.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery-3.0.0.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+  </ItemGroup>
+
+</Project>

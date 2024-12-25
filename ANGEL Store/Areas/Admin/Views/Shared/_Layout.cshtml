@@ -1,0 +1,237 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ANGEL_Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Style.css" />
+
+    <link rel="stylesheet" href="~/ANGEL_Store.styles.css" asp-append-version="true" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css">
+
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-white bg-transparent">
+            <div class="container">
+                <div class="mx-auto">
+                    <a class="navbar-brand" asp-controller="Home" asp-area="" asp-action="Index"><img src="~/icon/logo2.png"></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+                    <form class="d-flex justify-content-end " role="search">
+                        <input class=" fuckYou form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item dropdown">
+                            <a asp-controller="Home" asp-area="" asp-action="Index" class="nav-link primary-text" aria-current="page">Home</a>
+                            <br>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin Area
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Items" asp-action="Index">Items</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Category</a></li>
+                            </ul>
+                        </li>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" asp-area="Identity" title="Manage" asp-page="/Account/Manage/Index"><img src="~/icon/profileIcon.png" style="width: 40px; height: 40px;"> </a>
+                            </li>
+                            var user = await UserManager.GetUserAsync(User); // Fetch the user details
+                            if (user != null)
+                            {
+                                <li class="nav-item" style="margin-left: -20px;">
+                                    <a class="nav-link active" asp-area="Identity" title="Manage" asp-page="/Account/Manage/Index"><a>Hello,<br> @user.firstName !</a></a>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="Customer" asp-controller="CardPros" asp-action="Index">
+                                    <i style="color: #ad588f;"
+                                       class="fa-solid fa-cart-shopping fa-xl"></i>
+                                </a>
+                                <span><b>Card</b></span>
+
+                            </li>
+                        }
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+
+                </div>
+
+
+            </div>
+        </nav>
+
+    </header>
+    <div class="Mob-Nave">
+        <div class="text-center">
+            <img style="width: 200px;
+                margin-top: -50px;" src="~/icon/logo2.png" />
+        </div>
+        <button id="burger" class="open-main-nav">
+            <span class="burger"></span>
+            <span class="burger-text">Menu</span>
+        </button>
+        <nav class="main-nav" id="main-nav">
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-area="" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="Customer" asp-controller="CardPros" asp-action="Index">Card</a>
+                </li>
+                <li>
+                    <a asp-area="Customer" asp-controller="Locations" asp-action="Index">Addresses</a>
+                </li>
+
+                <li>
+                    <a asp-area="Identity" title="Manage" asp-page="/Account/Manage/Index">Setting</a>
+                </li>
+                <li>
+                    <a href="#">wish List (coming soon..)</a>
+                </li>
+                <li>
+                    <a href="#">Order history (coming soon..)</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <div class="NavLeft">
+        <!-- Navbar -->
+        <nav id="navbar">
+            <ul class="navbar-items flexbox-col">
+                <li class="navbar-logo flexbox-left">
+                    <a class="navbar-item-inner flexbox">
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 1438.88 1819.54">
+                            <polygon points="925.79 318.48 830.56 0 183.51 1384.12 510.41 1178.46 925.79 318.48" />
+                            <polygon points="1438.88 1663.28 1126.35 948.08 111.98 1586.26 0 1819.54 1020.91 1250.57 1123.78 1471.02 783.64 1663.28 1438.88 1663.28" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="navbar-item flexbox-left">
+                    <a asp-controller="Home" asp-area="" asp-action="Index" class="navbar-item-inner flexbox-left">
+                        <div class="navbar-item-inner-icon-wrapper flexbox">
+                            <i class="fa-solid fa-house fa-xl" style="color: ##808080;"></i>
+                        </div>
+                        <span class="link-text">Home</span>
+                    </a>
+                </li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="navbar-item flexbox-left">
+                        <a asp-area="Customer" asp-controller="Locations" asp-action="Index" class="navbar-item-inner flexbox-left">
+                            <div class="navbar-item-inner-icon-wrapper flexbox">
+                                <i class="fa-regular fa-address-book fa-2xl"></i>
+                            </div>
+                            <span class="link-text">Addresses</span>
+                        </a>
+                    </li>
+                    <li class="navbar-item flexbox-left">
+                        <a class="navbar-item-inner flexbox-left" asp-action="Index" asp-area="Customer" asp-controller="Order">
+                            <div class="navbar-item-inner-icon-wrapper flexbox">
+                                <i class="fa-solid fa-clock-rotate-left fa-xl" style="color: #808080;"></i>
+                            </div>
+                            <span class="link-text">Order history</span>
+                        </a>
+                    </li>
+                    <li class="navbar-item flexbox-left">
+                        <a class="navbar-item-inner flexbox-left" asp-area="Identity" title="Manage" asp-page="/Account/Manage/Index">
+                            <div class="navbar-item-inner-icon-wrapper flexbox">
+                                <i class="fa-solid fa-gear fa-xl" style="color: #808080;"></i>
+                            </div>
+                            <span class="link-text">Setting</span>
+                        </a>
+                    </li>
+                    <li class="navbar-item flexbox-left">
+                        <a class="navbar-item-inner flexbox-left" asp-area="" asp-controller="">
+                            <div class="navbar-item-inner-icon-wrapper flexbox">
+                                <i class="fa-regular fa-heart fa-2xl"></i>
+                            </div>
+                            <span class="link-text">wish List (coming soon..)</span>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+
+    </div>
+
+    <main role="main" class="pb-3 CustomerMain">
+        @RenderBody()
+    </main>
+
+
+
+    <footer class="footer" style=" position:relative; bottom:0; right: 0 ; left: 0;   z-index: 9;">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">shipping</a></li>
+                        <li><a href="#">returns</a></li>
+                        <li><a href="#">order status</a></li>
+                        <li><a href="#">payment options</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>online shop</h4>
+                    <ul>
+                        <li><a href="#">watch</a></li>
+                        <li><a href="#">bag</a></li>
+                        <li><a href="#">shoes</a></li>
+                        <li><a href="#">dress</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/js/all.min.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

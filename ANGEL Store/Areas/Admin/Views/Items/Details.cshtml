@@ -1,0 +1,110 @@
+﻿@model ANGEL.Models.Item
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    * {
+        color: #000;
+    }
+</style>
+
+<h1>Details</h1>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemName)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemTag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemTag)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemInformation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemInformation)
+        </dd>
+
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemDescription)
+        </dd>
+
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemPrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemPrice)
+        </dd>
+
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemImage)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/itemImages/@Model.ItemImage" style="width: 200px  " />
+        </dd>
+
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumOfProducts)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumOfProducts)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ItemDiscount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ItemDiscount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.category.CategoryName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ItemId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
